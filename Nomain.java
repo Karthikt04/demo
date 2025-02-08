@@ -1,6 +1,6 @@
 import java.util.Scanner;
 //this comment is added thru github
-
+// this is to check how del,merge ,recovery works!.
 public class Nomain {
     public static void main(String args[]){
         Scanner scan = new Scanner(System.in);
