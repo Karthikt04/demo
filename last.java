@@ -1,23 +1,25 @@
 import java.util.Scanner;
+import java.util.Random;
 public class last{
     public static void main(String args[]){
         Scanner scan = new Scanner(System.in);
-        //String color = scan.nextLine();
-        int salary, age;
-        System.out.print("enter salary: ");
-        salary = scan.nextInt();
-        System.out.print("enter age: ");
-        age = scan.nextInt();
-        if(salary>=20000 || age <= 25){
-            System.out.print("enter loan amount: ");
-            int amount = scan.nextInt();
-            if(amount<= 50000)
-            System.out.println("you can avail loan.");
-            else
-            System.out.println("maximum loan amount is 50000 !");
+        Random random = new Random();
+
+        int num = random.nextInt(1,20), i =1;
+        System.out.println("guess the number between 1-20, within 5 attempts !");
+        System.out.print("enter your guess! : ");
+        int guess = scan.nextInt();
+        while(guess!=num && i<5){
+            System.out.print("enter your guess! : ");
+            guess = scan.nextInt();
+            if(guess>num){
+                System.out.println("try a smaller value !");}
+            else if(guess==num){System.out.println("you win bro !!!");}
+            else{System.out.println("try high !");}
+            i++;
+
         }
-        else{
-            System.out.println("not eligible");}
+        
         scan.close();
 
     }
