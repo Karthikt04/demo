@@ -4,51 +4,27 @@ import java.util.Scanner;
 public class set{
     static Scanner scan =new Scanner(System.in);
     public static void main(String args[]){
-        boolean correct=true, input = true;
-        int count = 0;
-        /*System.out.print("enter the array size :");
-        int total = 0;
-        int size = scan.nextInt();
-        int[] numbers = new int[size];
-        System.out.println("enter your array elements : ");
-        for(int i = 0 ; i<size ; i++){
-            numbers[i] = scan.nextInt();
-        }
-        System.out.println("your array :");
-        for(int number : numbers){
-            System.out.println(number);
-        }
-        System.out.printf("mid element: %d",numbers[size/2]);
-        scan.close();*/
-        String[] question = {"what's your age ?","what's the currency of India ?","what's the national bird of India"};
-        String[][] answers ={{"9","10","27","19"},{"ruppees","dollar","pounds","yen"},{"penguin","sparrow","peacock","swan"}};
-        for(String quest : question){
-            input = true;
-            while(input){
-                System.out.println(quest);
-                int k =0;
-                for(int i =k;i<3;i++){
-                        int b=1;
-                        for(int j =0;j<4;j++){
-                            System.out.print(b +". "+ answers[i][j]+"   ");
-                            b++;
-                            if(i==0 && j==4)break;
-                            else if(i==1 && j==4)break;
-                            else if(i==2 && j==4)break;
-                        }
-                        System.out.println();
-                        k+=1;
-                        if (i==0){break;}
-                        else if (i==1){break;}
-                        else if (i==2){break;}
-                        
-                    
-                }
-                input = false;
+        String[] questions = {"what's your age ?","what's the currency of India ?","what's the national bird of India ?"};
+        String[][] options ={{"1. 9","2. 10","3. 27","4. 19"},{"1. ruppees","2. dollar","3. pounds","4. yen"},{"1. penguin","2. sparrow","3. peacock","4. swan"}};
+        int[] answers = {4,1,3};
+        int input = 0,check = 0;
+        System.out.println("###############################");
+        System.out.println("   Welcome To Java Quiz Game   ");
+        System.out.println("###############################");
+        for(int i =0 ;i<questions.length;i++){
+            System.out.println(questions[i]);
+            for(String option : options[i]){
+                System.out.println(option);
             }
+            System.out.print("enter your guess (1,2,3,4) : ");
+            input = scan.nextInt();
+            if(input==answers[i]){System.out.println("\n****correct****\n");check++;}
+            else{System.out.println("\nwrong :(\n");}
         }
-
-}
+        System.out.printf("you have got %d/3 questions corret !\n\n",check);
+                
+        }
+     
 static void add(int... numbers){
     int sum = 0;
     for(int number : numbers){
@@ -57,3 +33,4 @@ static void add(int... numbers){
     System.out.println(sum);
 }
 }
+
