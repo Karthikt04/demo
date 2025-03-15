@@ -1,64 +1,50 @@
 import java.util.Scanner;
+import java.util.Random;
 //this comment is added thru github
 // this is to check how del,merge ,recovery works!.
 public class Nomain {
     public static void main(String args[]){
         Scanner scan = new Scanner(System.in);
-        /*System.out.print("enter the symbol: ");
-        String symbol = scan.nextLine();
-        System.out.print("enter the no of rows: ");
-        int row = scan.nextInt();
-
-        System.out.print("enter the no of columns: ");
-        int columns = scan.nextInt();*/
-
-        /*for(int i= 1 ; i<=5; i++){
-            for(int j=0;j<i;j++){
-                System.out.print("#");
+        Random random = new Random();
+        boolean check = true;
+        while(check){
+            int rand = random.nextInt(1,4);
+            String compare = numForRPS(rand);
+            System.out.print("enter rock, paper or scissor ! : ");
+            String choice = scan.nextLine().toUpperCase();
+            if(compare.equals(choice)){
+                System.out.println(compare+"\nTie....lets play again");
+                check = true;
             }
-            System.out.println();
+            else if(choice.equals("ROCK")&&compare.equals("PAPER")){
+                System.out.println(compare+"\nyou are out");
+                check = true;
+            }
+            else if(choice.equals("PAPER")&&compare.equals("SCISSOR")){
+                System.out.println(compare+"\nyou are out");
+                check = true;
+            }
+            else if(choice.equals("SCISSOR")&&compare.equals("ROCK")){
+                System.out.println(compare+"\nyou are out");
+                check=true;
+            }
+            else{
+                System.out.println(compare+"\nyou win :) ");
+                check = false;
+            }
         }
-        for(int i= 4 ; i>=1; i--){
-            for(int j=0;j<i;j++){
-                System.out.print("#");
-            }
-            System.out.println();
-        }*/
-        System.out.print("enter the 1st number : ");
-        int num1 = scan.nextInt();
-        scan.nextLine();
-        System.out.print("enter the operator : ");
-        char operator = scan.next().charAt(0);
-        System.out.print("enter the 2nd number : ");
-        int num2 = scan.nextInt();
-        if(operator=='+'){add(num1,num2);}
-        else if(operator=='-'){sub(num1,num2);}
-        else if(operator=='*'){mul(num1,num2);}
-        else if(operator=='/'){div(num1,num2);}
-        else if(operator=='%'){rem(num1,num2);}
-        else System.out.println("enter a valid operator ! ");
 
-
-
-        scan.close();
     }
-    static void add(int num1,int num2){
-        System.out.println(num1+num2);
-    }
-    static void sub(int num1,int num2){
-        System.out.println(num1-num2);
-    }
-    static void mul(int num1,int num2){
-        System.out.println(num1*num2);
-    }
-    static void div(int num1,int num2){
-        if(num2!=0){
-        System.out.println(num1/num2);}
-        else System.out.println("cannot divide by 0.");
-    }
-    static void rem(int num1,int num2){
-        if (num2!=0){
-        System.out.println(num1 % num2);}
-        else System.out.println("cannot divide by 0.");
+    public static String numForRPS(int num){
+        if(num==1){
+            return "ROCK";
+        }
+        else if(num==2){
+            return "PAPER";
+        }
+        else if(num==3){
+            return "SCISSOR";
+        }
+        else{return null;}
     }
 }
